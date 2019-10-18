@@ -17,10 +17,10 @@ def falar(texto_falado):
 febre_alta = 0
 febre_baixa = 0
 # ------------------
-print('Olá, Seja Bem Vindo ao Smart Doctor\n '
+print('Olá, Seja Bem Vindo ao Smart Doctor, me chamo Kiua e vou te conduzir para uma avaliação\n '
       'Primeiramente queremos saber a sua temperatura do corpo para vermos se você apresenta febre. '
       'Vamos começar ?')
-falar('Olá, Seja Bem Vindo ao Smart Doctor\n '
+falar('Olá, Seja Bem Vindo ao Smart Doctor, me chamo Kiua e vou te conduzir para uma avaliação\n '
       'Primeiramente queremos saber a sua temperatura do corpo para vermos se você apresenta febre. '
       'Vamos começar ?')
 
@@ -90,15 +90,16 @@ falar('Está sentido dores na articulação ?')
 dor_articulacao = input('')
 if dor_articulacao.lower() == 'leve':
     dor_articulacao_e = 1
-    falar(f'Certo está sentindo dor de articulação com nível {dor_cabeca}')
+    falar(f'Certo está sentindo dor de articulação com nível {dor_articulacao}')
 elif dor_articulacao.lower() == 'moderada':
     dor_articulacao_e = 2
-    falar(f'Certo está sentindo dor de articulação com nível {dor_cabeca}')
+    falar(f'Certo está sentindo dor de articulação com nível {dor_articulacao}')
 elif dor_articulacao.lower() == 'intensa':
     dor_articulacao_e = 3
-    falar(f'Certo está sentindo dor de articulação com nível {dor_cabeca}')
+    falar(f'Certo está sentindo dor de articulação com nível {dor_articulacao}')
 elif dor_articulacao.lower() == 'não' or 'nao':
     dor_articulacao_e = 0
+    falar('Certo, não apresenta sintoma')
 
 
 print('Está sentido dores musculares ?')
@@ -106,12 +107,16 @@ falar('Está sentido dores musculares ?')
 dor_muscular = input('')
 if dor_muscular.lower() == 'leve':
     dor_muscular_e = 1
+    falar(f'Certo, você está sentindo dor muscular com nível {dor_muscular}')
 elif dor_muscular.lower() == 'moderada':
     dor_muscular_e = 2
+    falar(f'Certo, você está sentindo dor muscular com nível {dor_muscular}')
 elif dor_muscular.lower() == 'intensa':
     dor_muscular_e = 3
+    falar(f'Certo, você está sentindo dor muscular com nível {dor_muscular}')
 elif dor_muscular.lower() == 'não' or 'nao':
     dor_muscular_e = 0
+    falar('Certo, não apresenta sintoma')
 
 
 print('Está sentido fadiga (cansaço) ?')
@@ -119,24 +124,32 @@ falar('Está sentido fadiga (cansaço) ?')
 fadiga = input('')
 if fadiga.lower() == 'leve':
     fadiga_e = 1
+    falar(f'Certo, você está sentindo fadigas com nível {fadiga}')
 elif fadiga.lower() == 'moderada':
     fadiga_e = 2
+    falar(f'Certo, você está sentindo fadigas com nível {fadiga}')
 elif fadiga.lower() == 'intensa':
     fadiga_e = 3
+    falar(f'Certo, você está sentindo fadigas com nível {fadiga}')
 elif fadiga.lower() == 'não' or 'nao':
     fadiga_e = 0
+    falar('Certo, não apresenta sintoma')
 
 print('Está tendo vômitos ?')
 falar('Está tendo vômitos ?')
 vomitos = input('')
 if vomitos.lower() == 'leve':
     vomitos_e = 1
+    falar(f'Certo, você está tendo vômitos com baixa frequência')
 elif vomitos.lower() == 'moderada':
     vomitos_e = 2
+    falar(f'Certo, você está tendo vômitos com frequência moderada')
 elif vomitos.lower() == 'intensa':
     vomitos_e = 3
+    falar(f'Certo, você está tendo vômitos com muita frequência ')
 elif vomitos.lower() == 'não' or 'nao':
     vomitos_e = 0
+    falar('Certo, não apresenta sintoma')
 
 
 print('Está com olhos bem vermelhos ?')
@@ -149,29 +162,38 @@ if olhos_red.lower() == 'sim':
 elif olhos_red.lower() == 'não' or 'nao':
     olhos_red = nao
 
+
 print('Está com manchas no corpo ?')
 falar('Está com manchas no corpo ?')
 manchas = input('')
 if manchas.lower() == 'leve':
     manchas_e = 1
+    falar('Você está com poucas manchas no corpo')
 elif manchas.lower() == 'moderada':
     manchas_e = 2
+    falar('Você está com algumas manchas no corpo')
 elif manchas.lower() == 'intensa':
     manchas_e = 3
+    falar('Você está com muitas manchas no corpo')
 elif manchas.lower() == 'não' or 'nao':
     manchas_e = 0
+falar('Certo, não apresenta sintoma')
 
 print('Está sentido coceiras no corpo ?')
 falar('Está sentido coceiras no corpo ?')
 coceiras  = input('')
 if coceiras.lower() == 'leve':
     coceiras_e = 1
+    falar('Você está tendo poucas coceiras')
 elif coceiras.lower() == 'moderada':
     coceiras_e = 2
+    falar('Você está com coceiras mas não com muita frequência')
 elif coceiras.lower() == 'intensa':
     coceiras_e = 3
+    falar('Você está tendo coceiras com frequência')
 elif coceiras.lower() == 'não' or 'nao':
     coceiras_e = 0
+falar('Certo, não apresenta sintoma')
 
 resultado = clf.predict([[dor_cabeca_e, dor_articulacao_e, dor_muscular_e,
                           fadiga_e, vomitos_e, olhos_red, manchas_e, temperatura, coceiras_e]])
@@ -179,14 +201,21 @@ resultado = clf.predict([[dor_cabeca_e, dor_articulacao_e, dor_muscular_e,
 print()
 print()
 
+print('Certo ! Agora vamos analisar os sintomas que você nos informou')
 falar('Certo ! Agora vamos analisar os sintomas que você nos informou')
+print('De acordo com os sintomas avaliados...')
 falar('De acordo com os sintomas avaliados...')
 
+
 if resultado == 1:
-    falar('É possível de estar com dengue')
+    print('É possível de você estar com dengue')
+    falar('É possível de você estar com dengue')
 elif resultado == 2:
-    falar('É possível de estar com zika')
+    print('É possível de você estar com zika')
+    falar('É possível de você estar com zika')
 elif resultado == 3:
-    falar('É possível de estar com chikungunya')
+    print('É possível de você estar com chikungunya')
+    falar('É possível de você estar com chikungunya')
 elif resultado == 0:
+    print('É possível de estar com nenhuma doença transmitida pelo Aedes Aegypti')
     falar('É possível de estar com nenhuma doença transmitida pelo Aedes Aegypti')
