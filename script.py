@@ -1,3 +1,5 @@
+#IA empregando árvore de decisão
+
 from sklearn import tree
 import pyttsx3
 
@@ -15,10 +17,17 @@ def falar(texto_falado):
 febre_alta = 0
 febre_baixa = 0
 # ------------------
+print('Olá, Seja Bem Vindo ao Smart Doctor\n '
+      'Primeiramente queremos saber a sua temperatura do corpo para vermos se você apresenta febre. '
+      'Vamos começar ?')
 falar('Olá, Seja Bem Vindo ao Smart Doctor\n '
       'Primeiramente queremos saber a sua temperatura do corpo para vermos se você apresenta febre. '
       'Vamos começar ?')
+
+print('Quantos graus deu o termômetro no seu corpo ?')
 falar('Quantos graus deu o termômetro no seu corpo ?')
+
+
 temperatura = int(input(''))
 if temperatura >= 38:
     falar(f'Você está com febre alta, está com {temperatura} º Celsius')
@@ -55,33 +64,44 @@ doenca = [dengue, zika, chikungunya, nenhuma]
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(sintomas, doenca)
 
+falar('A seguir responda apenas com "Leve","Moderada" ou "Intensa" os respectivos sintomas abaixo:\n'
+      'ou caso não esteja sentindo nada digite "não"')
 print('A seguir responda apenas com "Leve","Moderada" ou "Intensa" os respectivos sintomas abaixo:')
 print()
 
-falar('Está sentido dores de cabeça ?')
+print('Está sentindo dor de cabeça ?')
+falar('Está sentido dor de cabeça ?')
 dor_cabeca = input('')
 if dor_cabeca.lower() == 'leve':
     dor_cabeca_e = 1
+    falar(f'Certo está sentindo dor de cabeça com nível {dor_cabeca}')
 elif dor_cabeca.lower() == 'moderada':
     dor_cabeca_e = 2
+    falar(f'Certo está sentindo dor de cabeça com nível {dor_cabeca}')
 elif dor_cabeca.lower() == 'intensa':
     dor_cabeca_e = 3
+    falar(f'Certo está sentindo dor de cabeça com nível {dor_cabeca}')
 elif dor_cabeca.lower() == 'não' or 'nao':
     dor_cabeca_e = 0
+    falar('Certo, não apresenta sintoma')
 
-
+print('Está sentido dores na articulação ?')
 falar('Está sentido dores na articulação ?')
 dor_articulacao = input('')
 if dor_articulacao.lower() == 'leve':
     dor_articulacao_e = 1
+    falar(f'Certo está sentindo dor de articulação com nível {dor_cabeca}')
 elif dor_articulacao.lower() == 'moderada':
     dor_articulacao_e = 2
+    falar(f'Certo está sentindo dor de articulação com nível {dor_cabeca}')
 elif dor_articulacao.lower() == 'intensa':
     dor_articulacao_e = 3
+    falar(f'Certo está sentindo dor de articulação com nível {dor_cabeca}')
 elif dor_articulacao.lower() == 'não' or 'nao':
     dor_articulacao_e = 0
 
 
+print('Está sentido dores musculares ?')
 falar('Está sentido dores musculares ?')
 dor_muscular = input('')
 if dor_muscular.lower() == 'leve':
@@ -94,6 +114,7 @@ elif dor_muscular.lower() == 'não' or 'nao':
     dor_muscular_e = 0
 
 
+print('Está sentido fadiga (cansaço) ?')
 falar('Está sentido fadiga (cansaço) ?')
 fadiga = input('')
 if fadiga.lower() == 'leve':
@@ -105,7 +126,7 @@ elif fadiga.lower() == 'intensa':
 elif fadiga.lower() == 'não' or 'nao':
     fadiga_e = 0
 
-
+print('Está tendo vômitos ?')
 falar('Está tendo vômitos ?')
 vomitos = input('')
 if vomitos.lower() == 'leve':
@@ -117,7 +138,10 @@ elif vomitos.lower() == 'intensa':
 elif vomitos.lower() == 'não' or 'nao':
     vomitos_e = 0
 
+
+print('Está com olhos bem vermelhos ?')
 falar('Está com olhos bem vermelhos ?')
+print('Responda apenas com "sim" ou "não"')
 falar('Responda apenas com "sim" ou "não"')
 olhos_red = input('')
 if olhos_red.lower() == 'sim':
@@ -125,6 +149,7 @@ if olhos_red.lower() == 'sim':
 elif olhos_red.lower() == 'não' or 'nao':
     olhos_red = nao
 
+print('Está com manchas no corpo ?')
 falar('Está com manchas no corpo ?')
 manchas = input('')
 if manchas.lower() == 'leve':
@@ -136,6 +161,7 @@ elif manchas.lower() == 'intensa':
 elif manchas.lower() == 'não' or 'nao':
     manchas_e = 0
 
+print('Está sentido coceiras no corpo ?')
 falar('Está sentido coceiras no corpo ?')
 coceiras  = input('')
 if coceiras.lower() == 'leve':
@@ -153,11 +179,14 @@ resultado = clf.predict([[dor_cabeca_e, dor_articulacao_e, dor_muscular_e,
 print()
 print()
 
+falar('Certo ! Agora vamos analisar os sintomas que você nos informou')
+falar('De acordo com os sintomas avaliados...')
+
 if resultado == 1:
-    falar('Está com dengue')
+    falar('É possível de estar com dengue')
 elif resultado == 2:
-    falar('Está com zika')
+    falar('É possível de estar com zika')
 elif resultado == 3:
-    falar('Está com chikungunya')
+    falar('É possível de estar com chikungunya')
 elif resultado == 0:
-    falar('Está com nenhuma doença')
+    falar('É possível de estar com nenhuma doença transmitida pelo Aedes Aegypti')
