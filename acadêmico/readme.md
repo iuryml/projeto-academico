@@ -1,4 +1,4 @@
-<h1 align="center">Trabalho de TCC Smart Saúde: Prevendo uma doença Aedes Aegypti pelos sintomas</h1>
+<h1 align="center">Smart Saúde: Prevendo uma doença Aedes Aegypti pelos sintomas</h1>
 <h3 align="center">Trabalho de TCC desenvolvido na Universidade Paulista</h3>
 
 🔭 Projeto realizado com uso de biblioteca de Machine Learning, onde foi possível usar dados pré definidos de sintomas para detectar ou prever uma doença relacionada ao Aedes Aegypti
