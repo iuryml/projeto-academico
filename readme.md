@@ -2,7 +2,7 @@
 
 O projeto foi desenvolvido para apresentação do Trabalho de Conclusão de Curso de Ciência da Computação com tema falado sobre IA
 
-| ✨ Nome | **Smart Saúde: Detecção de doenças através de sintomas Aedes Aegypti**
+| ✨ Nome | **Smart Saúde: Detecção de doenças através de sintomas Aedes Aegypti**<br>
 | 🏷️ Tecnologias | Python, Sci-kit Learn (tecnologias utilizadas)
 
 - 🔭 O projeto se encontra nos dois arquivos **main.py** e **script.py**, não há complemento entre os arquivos, porém, cada um foi desenvolvido de maneiras diferentes
